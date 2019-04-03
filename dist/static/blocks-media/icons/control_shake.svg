@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.69 34.08">
+    <defs>
+        <style>
+            .cls-1{fill:#ef9355;stroke:#8d5e25}.cls-1,.cls-4,.cls-5{stroke-miterlimit:10}.cls-2{fill:#35606f}.cls-3{fill:#376d7d}.cls-4,.cls-5{fill:none;stroke:#fff}.cls-4{stroke-width:1.97px}.cls-5{stroke-width:2px}
+        </style>
+    </defs>
+    <g id="图层_2" data-name="图层 2">
+        <g id="图层_1-2" data-name="图层 1">
+            <path d="M20.27 27.11a21.1 21.1 0 0 0-3-1.56c-2-.9.45-2-3.31-6s-.8-6.27 2-4.16a22.06 22.06 0 0 1 3.91 5.12V4.43s.3-1.61 1.66-1.61 1.81.55 2 1.4l.05 3.46s.5-2.41 2-2.31 2.16.9 2 3.71a1.9 1.9 0 0 1 2-1.4c1.56.2 2.16 1.61 1.81 3.56v1s.6-1.81 2.06-1.61 2 .8 1.86 2.36l-.04 11.11-.85 3z" class="cls-1"/>
+            <path d="M18.92 27.06h16.25v6.7H18.92z" class="cls-2"/>
+            <path d="M19.67 28.27H35.1v5.42H19.67z" class="cls-3"/>
+            <circle cx="32.95" cy="31.54" r="1.02" class="cls-2"/>
+            <path d="M44.29 33.46a24.34 24.34 0 0 0-2-32.75M8.35.71a24.34 24.34 0 0 0-2 32.75" class="cls-4"/>
+            <path d="M37.78 29a16.61 16.61 0 0 0-1.33-22.3M13.26 6.7A16.61 16.61 0 0 0 11.92 29" class="cls-5"/>
+        </g>
+    </g>
+</svg>

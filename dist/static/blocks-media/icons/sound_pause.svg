@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40.21 40.21">
+    <defs>
+        <style>
+            .cls-1{fill:#fff}.cls-2{fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:2.63px}
+        </style>
+    </defs>
+    <g id="图层_2" data-name="图层 2">
+        <g id="图层_1-2" data-name="图层 1">
+            <g id="Icons_with_numbers" data-name="Icons with numbers">
+                <path id="Group" d="M16.59 17.35V30a3.84 3.84 0 0 1-2.34 3.27c-2.21 1.13-4.53.58-5.38-.73s-.23-3.38 2-4.51a4.88 4.88 0 0 1 4.13-.32v-16.5L31.14 8v20.35a3.84 3.84 0 0 1-2.34 3.27c-2.21 1.13-4.53.58-5.38-.73s-.23-3.38 2-4.51a4.88 4.88 0 0 1 4.12-.28V14.76z" class="cls-1"/>
+            </g>
+            <circle cx="20.11" cy="20.11" r="18.79" class="cls-2"/>
+            <path d="M34.78 33.23L6.54 8.59" class="cls-2"/>
+        </g>
+    </g>
+</svg>

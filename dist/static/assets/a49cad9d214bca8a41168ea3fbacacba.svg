@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45">
+    <defs>
+        <style>
+            .cls-1,.cls-2{fill:#4fa54c;stroke:#fff;stroke-width:.25px;stroke-miterlimit:10}.cls-2{fill:none;stroke:#4fa54c;stroke-width:4px}
+        </style>
+    </defs>
+    <g id="图层_2" data-name="图层 2">
+        <g id="图层_1-2" data-name="图层 1">
+            <g id="_编组_" data-name="&lt;编组&gt;">
+                <path id="_编组_2" d="M18.71 15.08l11.86 6.85a.66.66 0 0 1 0 1.14l-11.86 6.85a.66.66 0 0 1-1-.57v-13.7a.66.66 0 0 1 1-.57z" class="cls-1" data-name="&lt;编组&gt;"/>
+            </g>
+            <circle cx="22.5" cy="22.5" r="20.5" class="cls-2"/>
+        </g>
+    </g>
+</svg>
