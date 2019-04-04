@@ -22,7 +22,7 @@ clone_depth: 1
 test_script:
   - electron-builder
 artifacts:
-  - path: 'releases\*.{exe,yml}'
+  - path: 'releases\*.*'
 deploy:
   provider: GitHub
   auth_token:
