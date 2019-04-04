@@ -35,6 +35,8 @@ before_script:
   - security unlock-keychain -p mysecretpassword $KEYCHAIN
   - security set-keychain-settings -t 3600 -u $KEYCHAIN
   - security import $CERTIFICATE_P12 -k $KEYCHAIN -P $CERTIFICATE_PASSWORD -T /usr/bin/codesign
+  - security find-identity -v -p codesigning
+  - security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k travis $KEYCHAIN
 
 script:
   - electron-builder
