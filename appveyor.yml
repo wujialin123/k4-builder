@@ -3,7 +3,7 @@ cache:
   - node_modules
 environment:
   GH_TOKEN:
-    secure: 9XW4gTAt9ElJKikOcycOTiCa6Hj7HE+1TxYm4xTXdFcT7YoOYyocLCVuG1FHzAAN # your encrypted token from GitHub
+    secure: 9XW4gTAt9ElJKikOcycOTiCa6Hj7HE+1TxYm4xTXdFcT7YoOYyocLCVuG1FHzAAN
   matrix:
     - nodejs_version: 8
 install:
@@ -26,7 +26,7 @@ artifacts:
 deploy:
   provider: GitHub
   auth_token:
-    secure: 9XW4gTAt9ElJKikOcycOTiCa6Hj7HE+1TxYm4xTXdFcT7YoOYyocLCVuG1FHzAAN # your encrypted token from GitHub
+    secure: 9XW4gTAt9ElJKikOcycOTiCa6Hj7HE+1TxYm4xTXdFcT7YoOYyocLCVuG1FHzAAN
   draft: false
   prerelease: false
   on:
