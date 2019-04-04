@@ -35,7 +35,7 @@ deploy:
   provider: releases
   api_key: $GH_TOKEN
   file_glob: true
-  file: 'releases/*.{dmg,zip,AppImage,tar.gz”}'
+  file: 'releases/*.{dmg,zip,AppImage,tar.gz,yml”}'
   skip_cleanup: true
   on:
     tags: true
