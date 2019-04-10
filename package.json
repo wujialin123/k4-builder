@@ -57,6 +57,15 @@
       "main.js",
       "dist/**",
       "node_modules"
+    ],
+    "extraResources": [
+      {
+        "from": "./dist/static/extra",
+        "to": "./static",
+        "filter": [
+          "**/*"
+        ]
+      }
     ]
   },
   "repository": {
