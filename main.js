@@ -23,7 +23,11 @@ const createWindow = () => {
     mainWindow = new BrowserWindow({
         width: 1280,
         height: 768,
-        show: false
+        show: false,
+        // electron 5.0 之后 nodeIntegration 默认为 false, 要改为 true
+        webPreferences: {
+            nodeIntegration: true
+        }
     });
 
     let indexPath;
