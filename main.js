@@ -29,7 +29,7 @@ const createWindow = () => {
             nodeIntegration: true
         }
     });
-
+    mainWindow.setMenuBarVisibility(false);
     let indexPath;
 
     if (isDev) {
