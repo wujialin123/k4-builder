@@ -18,6 +18,8 @@ if (process.platform === 'win32') {
     app.commandLine.appendSwitch('force-device-scale-factor', '1');
 }
 
+const shouldQuit = app.requestSingleInstanceLock();
+
 const createWindow = () => {
     // const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
     mainWindow = new BrowserWindow({
@@ -75,13 +77,27 @@ const createWindow = () => {
 // app.commandLine.appendSwitch("--disable-http-cache");
 
 app.on('ready', () => {
+    if (!shouldQuit) {
+      app.quit();
+      return;
+    }
+    app.on('second-instance', (event, commandLine, workingDirectory) => {
+        // Someone tried to run a second instance, we should focus our window.
+        if (mainWindow) {
+            if (commandLine.length > 1){
+                mainWindow.webContents.send('open-file', commandLine[1]);
+            }
+            if (mainWindow.isMinimized()) {
+                mainWindow.restore();
+            }
+            mainWindow.focus();
+        }
+    });
     createWindow();
 });
 
 app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
+    app.quit();
 });
 
 app.on('activate', () => {
