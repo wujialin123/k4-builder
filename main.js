@@ -18,6 +18,10 @@ if (process.platform === 'win32') {
     app.commandLine.appendSwitch('force-device-scale-factor', '1');
 }
 
+if (process.platform === 'win32' && process.argv.length > 1) {
+    filepath = process.argv[1];
+}
+
 const shouldQuit = app.requestSingleInstanceLock();
 
 const createWindow = () => {
@@ -109,6 +113,10 @@ app.on('activate', () => {
 app.on('open-file', (event, qoboPath) => {
     event.preventDefault();
     filepath = qoboPath;
+
+    if (process.platform === 'win32' && process.argv.length > 1) {
+        filepath = process.argv[1];
+    }
 
     if (ready) {
         mainWindow.webContents.send('open-file', filepath);
