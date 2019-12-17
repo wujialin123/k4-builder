@@ -20,15 +20,15 @@
     "publish": [
       {
         "provider": "generic",
-        "url": "http://static.robobloq.cn/apps/qobo/"
+        "url": "http://static.robobloq.cn/apps/snailbot/"
       }
     ],
-    "appId": "com.robobloq.qobo",
-    "productName": "Qobo",
+    "appId": "com.robobloq.snailbot",
+    "productName": "snailbot",
     "copyright": "Copyright © 2017 Robobloq",
     "fileAssociations": {
-      "ext": "qobo",
-      "name": "Qobo"
+      "ext": "sbt",
+      "name": "snailbot"
     },
     "directories": {
       "output": "./releases"
