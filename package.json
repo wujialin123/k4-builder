@@ -134,5 +134,6 @@
     "ghooks": {
       "pre-commit": "npm run test:lint"
     }
-  }
+  },
+  "__npminstall_done": false
 }
