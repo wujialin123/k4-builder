@@ -11,7 +11,10 @@ matrix:
 
 node_js:
   - 8
-
+env:
+  global:
+    - COMMIT_ID=$(echo $TRAVIS_COMMIT | cut -c1-7)
+    - FILE_NAME="Qobo-MacOS-`date '+%y%m%d'`-$COMMIT_ID"
 cache:
   directories:
     - node_modules
@@ -39,6 +42,11 @@ before_script:
 
 script:
   - electron-builder
+  - brew install p7zip
+  - 7z a -tzip $FILE_NAME.zip ./releases/*.*
+  - wget https://static-hk-robobloq.oss-cn-hongkong.aliyuncs.com/certificate/q-release-mac -P /tmp
+  - chmod a+x /tmp/q-release-mac
+  - /tmp/q-release-mac upload ./$FILE_NAME.zip
 
 deploy:
   provider: releases

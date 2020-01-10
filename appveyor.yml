@@ -6,6 +6,9 @@ environment:
     secure: q0seCidIf7NXsK7KPL9ts9xlWCFkRmicxcTci3u0Cj9uFgc4GFxHOIkIGtbFy3Eq # your encrypted token from GitHub
   matrix:
     - nodejs_version: 8
+init:
+  - cmd: set BUILD_NUMBER=%date:~10,4%%date:~4,2%%date:~7,2%-%APPVEYOR_REPO_COMMIT:~0,7%
+  - cmd: set FILE_NAME=Qobo-Windows-%BUILD_NUMBER%
 install:
   - ps: Install-Product node $env:nodejs_version
   - set CI=true
@@ -21,6 +24,9 @@ shallow_clone: true
 clone_depth: 1
 test_script:
   - electron-builder
+  - curl -o q-release.exe https://static-hk-robobloq.oss-cn-hongkong.aliyuncs.com/certificate/q-release.exe
+  - 7z a -tzip %FILE_NAME%.zip .\releases\*.*
+  - q-release.exe upload %FILE_NAME%.zip
 artifacts:
   - path: 'releases\*.*'
 deploy:
