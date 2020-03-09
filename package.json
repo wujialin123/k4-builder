@@ -1,6 +1,6 @@
 {
   "name": "qobo",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "支持目录下音乐下载加入下拉菜单, 可按照语言查找相应语言网页",
   "main": "main.js",
   "scripts": {
