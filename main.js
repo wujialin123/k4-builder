@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 const {app, ipcMain, BrowserWindow} = require('electron');
 const {autoUpdater} = require('electron-updater');
 const log = require('electron-log');
@@ -12,16 +13,12 @@ autoUpdater.autoDownload = false;
 let mainWindow = null;
 let filepath = null;
 let ready = false;
+let xml = null;
 
 if (process.platform === 'win32') {
     app.commandLine.appendSwitch('high-dpi-support', 'true');
     app.commandLine.appendSwitch('force-device-scale-factor', '1');
 }
-
-if (process.platform === 'win32' && process.argv.length > 1) {
-    filepath = process.argv[1];
-}
-
 const shouldQuit = app.requestSingleInstanceLock();
 
 const createWindow = () => {
@@ -30,7 +27,6 @@ const createWindow = () => {
         width: 1280,
         height: 768,
         show: false,
-        // electron 5.0 之后 nodeIntegration 默认为 false, 要改为 true
         webPreferences: {
             nodeIntegration: true
         }
@@ -71,21 +67,36 @@ const createWindow = () => {
         }
     });
 
-    ready = true;
+    ipcMain.on('xml', (event, arg) => {
+        console.log(arg);
+        xml = arg;
+    });
+
+    mainWindow.on('close', event => {
+        console.log(xml);
+        if (xml === 'saved') {
+            app.quit();
+        } else {
+            mainWindow.webContents.send('close_event', 'end');
+            event.preventDefault();
+        }
+    });
 
     mainWindow.on('closed', () => {
         mainWindow = null;
     });
+
+    ready = true;
 };
 
 // app.commandLine.appendSwitch("--disable-http-cache");
 
 app.on('ready', () => {
     if (!shouldQuit) {
-      app.quit();
-      return;
+        app.quit();
+        return;
     }
-    app.on('second-instance', (event, commandLine, workingDirectory) => {
+    app.on('second-instance', (event, commandLine) => {
         // Someone tried to run a second instance, we should focus our window.
         if (mainWindow) {
             if (commandLine.length > 1){
@@ -113,11 +124,6 @@ app.on('activate', () => {
 app.on('open-file', (event, qoboPath) => {
     event.preventDefault();
     filepath = qoboPath;
-
-    if (process.platform === 'win32' && process.argv.length > 1) {
-        filepath = process.argv[1];
-    }
-
     if (ready) {
         mainWindow.webContents.send('open-file', filepath);
         filepath = null;
