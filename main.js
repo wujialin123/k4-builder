@@ -74,7 +74,7 @@ const createWindow = () => {
 
     mainWindow.on('close', event => {
         console.log(xml);
-        if (xml === 'saved') {
+        if (xml === 'saved' || xml === null) {
             app.quit();
         } else {
             mainWindow.webContents.send('close_event', 'end');
