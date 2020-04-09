@@ -53,11 +53,11 @@ const createWindow = () => {
 
     mainWindow.once('ready-to-show', () => {
         mainWindow.show();
-        // if (isDev) {
-        mainWindow.webContents.openDevTools(
-            {mode: 'detach'}
-        );
-        // }
+        if (isDev) {
+            mainWindow.webContents.openDevTools(
+                {mode: 'detach'}
+            );
+        }
     });
 
     mainWindow.webContents.on('did-finish-load', () => {
@@ -74,7 +74,7 @@ const createWindow = () => {
 
     mainWindow.on('close', event => {
         console.log(xml);
-        if (xml === 'saved') {
+        if (xml === 'saved' || xml === null) {
             app.quit();
         } else {
             mainWindow.webContents.send('close_event', 'end');
