@@ -53,11 +53,11 @@ const createWindow = () => {
 
     mainWindow.once('ready-to-show', () => {
         mainWindow.show();
-        if (isDev) {
-            mainWindow.webContents.openDevTools(
-                {mode: 'detach'}
-            );
-        }
+        // if (isDev) {
+        mainWindow.webContents.openDevTools(
+            {mode: 'detach'}
+        );
+        // }
     });
 
     mainWindow.webContents.on('did-finish-load', () => {
