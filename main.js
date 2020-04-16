@@ -1,4 +1,3 @@
-/* eslint-disable global-require */
 const {app, ipcMain, BrowserWindow} = require('electron');
 const {autoUpdater} = require('electron-updater');
 const log = require('electron-log');
@@ -13,7 +12,6 @@ autoUpdater.autoDownload = false;
 let mainWindow = null;
 let filepath = null;
 let ready = false;
-let xml = null;
 
 if (process.platform === 'win32') {
     app.commandLine.appendSwitch('high-dpi-support', 'true');
@@ -64,21 +62,6 @@ const createWindow = () => {
         if (filepath) {
             mainWindow.webContents.send('open-file', filepath);
             filepath = null;
-        }
-    });
-
-    ipcMain.on('xml', (event, arg) => {
-        console.log(arg);
-        xml = arg;
-    });
-
-    mainWindow.on('close', event => {
-        console.log(xml);
-        if (xml === 'saved' || xml === null) {
-            app.quit();
-        } else {
-            mainWindow.webContents.send('close_event', 'end');
-            event.preventDefault();
         }
     });
 
